@@ -1,0 +1,7 @@
+com\coursemanagement\learningplatform\CourseService.class
+com\coursemanagement\learningplatform\CourseRecommender.class
+com\coursemanagement\learningplatform\StudyFieldRepository.class
+com\coursemanagement\learningplatform\Course.class
+com\coursemanagement\learningplatform\StudyField.class
+com\coursemanagement\learningplatform\CourseRepository.class
+com\coursemanagement\learningplatform\LearningPlatformApplication.class
