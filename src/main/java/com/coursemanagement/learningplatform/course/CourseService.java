@@ -1,6 +1,8 @@
 package com.coursemanagement.learningplatform.course;
 
 import com.coursemanagement.learningplatform.course.entity.RecommenderType;
+import com.coursemanagement.learningplatform.school.SchoolA;
+import com.coursemanagement.learningplatform.school.SchoolB;
 import com.coursemanagement.learningplatform.studyfield.entity.StudyField;
 import com.coursemanagement.learningplatform.studyfield.repository.StudyFieldRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -18,17 +20,24 @@ import java.util.Scanner;
 @Service // Business logic
 public class CourseService {
 
-    @Autowired
-    private CourseRecommender courseRecommender;
 
-    @Autowired
-    @Qualifier("filterCoursesByStudyField")
-    private CourseRecommender filterCoursesByStudyField;
 
     @Autowired
     private StudyFieldRepository studyFieldRepository;
 
+    @Autowired
+    @Qualifier("schoolAByBeanInjection")
+    private SchoolA schoolA;
 
+    @Autowired
+    @Qualifier("schoolBByBeanInjection")
+    private SchoolB schoolB;
+//    @Autowired
+//    public CourseService( SchoolA schoolA,
+//                          SchoolB schoolB) {
+//        this.schoolA = schoolA;
+//        this.schoolB = schoolB;
+//    }
     private final Scanner scanner = new Scanner(System.in);
 
     @EventListener(ApplicationReadyEvent.class)
@@ -80,7 +89,7 @@ public class CourseService {
                 break;
             case ALL:
             default:
-                courseName = courseRecommender.recommendCourse(0);
+                courseName = schoolA.recommendCourse(0);
                 break;
         }
 
@@ -114,7 +123,7 @@ public class CourseService {
                     scanner.nextLine();
                 }
             }
-            return filterCoursesByStudyField.recommendCourse(sfId);
+            return schoolB.recommendCourse(sfId);
         } else {
             System.out.println("No study fields available.");
             return null;

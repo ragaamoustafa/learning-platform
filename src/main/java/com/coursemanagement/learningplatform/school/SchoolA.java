@@ -4,7 +4,6 @@ import com.coursemanagement.learningplatform.course.CourseRecommender;
 import com.coursemanagement.learningplatform.course.entity.Course;
 import com.coursemanagement.learningplatform.course.repository.CourseRepository;
 import lombok.RequiredArgsConstructor;
-import org.antlr.v4.runtime.tree.pattern.ParseTreePattern;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
