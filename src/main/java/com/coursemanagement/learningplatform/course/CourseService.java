@@ -1,8 +1,6 @@
 package com.coursemanagement.learningplatform.course;
 
-import com.coursemanagement.learningplatform.course.entity.Course;
 import com.coursemanagement.learningplatform.course.entity.RecommenderType;
-import com.coursemanagement.learningplatform.course.repository.CourseRepository;
 import com.coursemanagement.learningplatform.studyfield.entity.StudyField;
 import com.coursemanagement.learningplatform.studyfield.repository.StudyFieldRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -19,8 +17,6 @@ import java.util.Scanner;
 @Slf4j
 @Service // Business logic
 public class CourseService {
-    @Autowired
-    private CourseRepository courseRepository;
 
     @Autowired
     private CourseRecommender courseRecommender;
@@ -84,8 +80,7 @@ public class CourseService {
                 break;
             case ALL:
             default:
-                List<Course> courses = courseRepository.findAll();
-                courseName = courseRecommender.recommendCourse(courses, 0);
+                courseName = courseRecommender.recommendCourse(0);
                 break;
         }
 
@@ -119,9 +114,7 @@ public class CourseService {
                     scanner.nextLine();
                 }
             }
-            // Retrieve courses by the selected study field
-            List<Course> courses = courseRepository.findAllByStudyFieldId(sfId);
-            return filterCoursesByStudyField.recommendCourse(courses, sfId);
+            return filterCoursesByStudyField.recommendCourse(sfId);
         } else {
             System.out.println("No study fields available.");
             return null;
