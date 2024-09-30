@@ -15,7 +15,7 @@ import java.util.Set;
 public class StudyField {
 
     @Id
-    private Integer id;
+    private long id;
 
     @Column(nullable = false)
     private String name;

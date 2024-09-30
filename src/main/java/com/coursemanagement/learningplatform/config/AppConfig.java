@@ -6,6 +6,10 @@ import com.coursemanagement.learningplatform.school.SchoolB;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+import javax.sql.DataSource;
 
 @Configuration
 @RequiredArgsConstructor
@@ -20,4 +24,5 @@ public class AppConfig {
     public SchoolB schoolC() {
         return new SchoolB(courseRepository);
     }
+
 }
