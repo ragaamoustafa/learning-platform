@@ -15,12 +15,12 @@ public class SchoolA implements CourseRecommender {
 
     private final CourseRepository courseRepository;
     @Override
-    public String recommendCourse(long studyFieldID) {
+    public Course recommendCourse(long studyFieldID) {
 
         List<Course> courses = courseRepository.findAll();
             if (!courses.isEmpty()) {
                 int randomIndex = (int) (Math.random() * courses.size());
-                return courses.get(randomIndex).getName();
+                return courses.get(randomIndex);
             } else {
                 return null;
             }

@@ -1,11 +1,7 @@
 package com.coursemanagement.learningplatform.course.entity;
 
 import com.coursemanagement.learningplatform.studyfield.entity.StudyField;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,7 +15,7 @@ public class Course {
     private long id;
     private String name;
     private String description;
-    private String credit;
+    private Integer credit;
 
     @ManyToOne
     @JoinColumn(name = "sf_id", referencedColumnName = "id")
