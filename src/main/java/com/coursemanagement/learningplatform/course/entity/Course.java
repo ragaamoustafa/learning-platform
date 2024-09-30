@@ -17,8 +17,9 @@ public class Course {
 
     @Id
     private long id;
-
     private String name;
+    private String description;
+    private String credit;
 
     @ManyToOne
     @JoinColumn(name = "sf_id", referencedColumnName = "id")

@@ -7,6 +7,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CourseRepository extends JpaRepository<Course, Long> {
+public interface CourseRepository  {
     List<Course> findAllByStudyFieldId(long sfId); //retrieve courses by study field
+
+    List<Course> findAll();
+
+    void addCourse(Course course);
+    void updateCourse(Course course);
+    void deleteCourse(long id);
 }

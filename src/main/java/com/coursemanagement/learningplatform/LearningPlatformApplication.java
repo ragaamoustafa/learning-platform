@@ -4,6 +4,7 @@ import com.coursemanagement.learningplatform.course.CourseService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 @SpringBootApplication // equivalent to using @Configuration, @EnableAutoConfiguration, and @ComponentScan.
 public class LearningPlatformApplication {
