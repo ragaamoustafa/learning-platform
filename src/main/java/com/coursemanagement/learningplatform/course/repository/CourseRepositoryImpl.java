@@ -42,11 +42,11 @@ public class CourseRepositoryImpl implements CourseRepository {
                 course.getStudyField() != null ? course.getStudyField().getId() : null, course.getId());
     }
 
-
-//    public Course viewCourse(long courseId) {
-//        String sql = "SELECT * FROM course c JOIN study_field sf ON c.sf_id = sf.id WHERE c.id = ?";
-//        return jdbcTemplate.queryForObject(sql, new Object[]{courseId}, new CourseRowMapper()); // Correct case
-//    }
+    @Override
+    public Course viewCourse(long courseId) {
+        String sql = "SELECT * FROM course c JOIN study_field sf ON c.sf_id = sf.id WHERE c.id = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{courseId}, courseRowMapper()); // Correct case
+    }
 
     @Override
     public void deleteCourse(long id) {
@@ -60,7 +60,7 @@ public class CourseRepositoryImpl implements CourseRepository {
             course.setId(rs.getLong("id"));
             course.setName(rs.getString("name"));
             course.setDescription(rs.getString("description"));
-            course.setCredit(rs.getString("credit"));
+            course.setCredit(rs.getInt("credit"));
 
             // Fetch the StudyField entity
             long sfId = rs.getLong("sf_id");

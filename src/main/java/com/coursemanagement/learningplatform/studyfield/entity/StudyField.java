@@ -1,11 +1,11 @@
 package com.coursemanagement.learningplatform.studyfield.entity;
 
-import com.coursemanagement.learningplatform.course.entity.Course;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Set;
 
 
 @Entity
@@ -19,7 +19,4 @@ public class StudyField {
 
     @Column(nullable = false)
     private String name;
-
-    @OneToMany(mappedBy = "studyField", cascade = CascadeType.ALL)
-    private Set<Course> courses; // Link back to Course entities
 }

@@ -145,7 +145,7 @@ public class CourseService {
         String description = scanner.nextLine();
 
         System.out.print("New credit: ");
-        String credit = scanner.nextLine();
+        Integer credit = scanner.nextInt();
 
         System.out.print("New Study Field ID: ");
         long studyFieldId = scanner.nextLong();
@@ -202,7 +202,7 @@ public class CourseService {
         String description = scanner.nextLine();
 
         System.out.print("Credit: ");
-        String credit = scanner.nextLine();
+        Integer credit = scanner.nextInt();
 
         viewAllStudyFields();
         System.out.print("Study Field ID: ");
@@ -254,7 +254,7 @@ public class CourseService {
                 break;
             case ALL:
             default:
-                courseName = schoolA.recommendCourse(0);
+                courseName = schoolA.recommendCourse(0).getName();
                 break;
         }
 
@@ -292,7 +292,7 @@ public class CourseService {
                     scanner.nextLine();
                 }
             }
-            return schoolB.recommendCourse(sfId);
+        return schoolB.recommendCourse(sfId).getName();
 
     }
 
